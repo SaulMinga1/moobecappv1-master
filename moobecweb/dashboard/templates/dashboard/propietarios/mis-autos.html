@@ -1,0 +1,67 @@
+{% extends "layouts/dashboard_base.html" %}
+{% load static %}
+<!-- block title  Mis alquileres {{ user.groups.all.0.name }} endblock-->
+
+{% block title %} Mis autos {% endblock %}
+{% block content %}
+<div class="container-fluid border-bottom border-light border-top shadow-sm" style="background-color: #F8F7F8;">
+    <div class="mt-4 mb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <h4 ><span>Found 125 results for</span></h4>
+                </div>
+                <div class="col-4">
+                    <form class="form-inline">
+                        <div class="row">
+                        <div class="col-8">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-outline-success " type="submit">Search</button>
+                        </div>
+                        </div>
+                        
+                        
+                      </form>
+                </div>
+            </div><br>
+                
+            
+
+        <div class="container-fluid bg-light rounded-3">
+            <section class="py-8 ">  
+              <div class="mb-24 p-3  rounded-3" style="background-color: white;">
+                <div class="position-relative mb-6 bg-light-light" style="background-color: lightcyan;">
+                  <span class="position-absolute top-0 start-0 ms-6 mt-6 px-2 py-1 small fw-bold bg-white border border-2 border-danger rounded-pill text-danger">tipo de reserva</span>
+                  <div class="row align-items-center px-8 px-md-20 py-12">
+                    <div class="col-12 col-md-3 mb-4 mb-md-0">
+                      <a href="#">
+                        <img class="mx-auto mx-md-0 img-fluid" style="width: 160px; height: 208px; object-fit: contain;" src="yofte-assets/images/waterbottle.png" alt="">
+                      </a>
+                    </div>
+                    <div class="col-12 col-md-9">
+                      <a class="link-dark text-decoration-none d-block mb-8" href="#">
+                        <h3 class="mb-2 lead fw-bold">Car name</h3>
+
+                        <p class="mw-md text-secondary">Descripcion vehiculo</p>
+                      </a>
+                      <div class="d-flex flex-wrap align-items-center justify-content-between">
+                        <a class="mb-4 mb-md-0 me-md-4 btn btn-primary" href="#">Add to cart</a>
+
+                      </div>
+                    </div>
+                  </div>
+                </div><hr>
+
+
+              </div>
+            </section>
+        </div></div>
+    </div>
+</div>
+                
+            
+{% endblock %}
+
+

@@ -1,0 +1,138 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Moobec | {% block title %}  {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap/bootstrap.min.css' %}">
+    <link rel="icon" href="{% static 'assets/favicon.ico' %}">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+</head>
+<body>
+    <div class="">
+        
+        <section class="position-relative overflow-hidden"><div class="d-none d-lg-block position-absolute top-50 start-0" style="margin-top: -5rem; margin-left: -5rem">
+          <img class="img-fluid" style="height: 256px;" src="{% static 'assets/metis-assets/illustrations/walk-dog.png' %}" alt=""></div>
+          <div class="d-none d-lg-block position-absolute top-50 end-0" style="margin-top: -5rem; margin-right: -5rem">
+            <img class="img-fluid" style="height: 256px;" src="{% static 'assets/metis-assets/illustrations/phone-online-shopping.png' %}" alt=""></div>
+          <div class="container">
+            <nav class="position-relative navbar navbar-expand-lg navbar-light py-3 mb-5"><a class="navbar-brand" href="{% url 'home' %}">
+              <img src="{% static 'assets/metis-assets/logos/metis/Untitled.svg' %}" alt="moobec" width="106"></a>
+              <button class="navbar-toggler" type="button" data-toggle="side-menu" data-target="#sideMenuHeaders08" aria-controls="sideMenuHeaders08" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse">
+                <ul class="navbar-nav position-absolute top-50 start-50 translate-middle" style="text-decoration: none;">
+                    <!--li class="nav-item me-2"><a class="nav-link" href="#">Product</a></li-->
+                    <li class="nav-item me-2"><a class="{% if request.path == '/' %} active {% endif %}" href="#">para empresas</a></li>
+                    <li class="nav-item me-2 "><a class="{% if request.path == '/' %} active {% endif %}" href="{% url 'preguntas' %}">Preguntas?</a></li>
+                    <!--li class="nav-item"><a class="nav-link" href="#">Features</a></li-->
+                </ul>
+                {% if user.is_authenticated  %}
+                    <!--div class="ms-auto"><a class="btn btn-outline-primary me-2" href="accounts/logout/">log out</a-->
+                    <div class="ms-auto">
+                        <a class="btn btn-outline-primary me-2" href="{% url 'dashboard' %}">{{user.first_name}}</a>
+                        <a class="btn btn-outline-primary me-2" href="{% url 'logout' %}">log out</a> 
+                        <a class="btn btn-primary" href="{% url 'anunciarauto' %}">Anuncia tu auto</a>
+                    </div>
+                    {% else %}
+                    <div class="ms-auto"><a class="btn btn-outline-primary me-2" href="{% url 'login' %}">Log In</a><a class="btn btn-primary" href="{% url 'anunciarauto' %}">Anuncia tu auto</a></div>
+                    {% endif %}
+              </div>
+            </nav><div class="row mb-5">
+            <!------------- HEADER-------------->
+            {% block header %}
+            
+            {% endblock %}
+
+          <!--nav phones-->
+          <div class="d-none fixed-top top-0 bottom-0" id="sideMenuHeaders08">
+            <div class="position-absolute top-0 end-0 bottom-0 start-0 bg-dark" style="opacity: 0.7"></div>
+            <nav class="navbar navbar-light position-absolute top-0 bottom-0 start-0 w-75 pt-3 pb-4 px-4 bg-white" style="overflow-y: auto;"><div class="d-flex flex-column w-100 h-100">
+              <div class="d-flex justify-content-between mb-4">
+                <a href="#">
+                  <img class="img-fluid" src="{% static 'assets/metis-assets/logos/metis/metis.svg' %}" alt="" width="106"></a>
+                <button class="btn-close" type="button" data-toggle="side-menu" data-target="#sideMenuHeaders08" aria-controls="sideMenuHeaders08" aria-label="Close"></button>
+              </div>
+              <div>
+                <ul class="navbar-nav mb-4"><li class="nav-item"><a class="nav-link" href="#">Product</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Company</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">About </a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                </ul><div class="border-top pt-4 mb-5"><a class="btn btn-outline-primary w-100 mb-2" href="{% url 'login' %}">Log in</a><a class="btn btn-primary w-100" href="#">Anuncia tu auto</a></div>
+              </div>
+              <div class="mt-auto">
+                <p>
+                  <span>Get in Touch</span>
+                  <a href="#">info@example.com</a>
+                </p>
+                <a class="me-2" href="#">
+                  <img src="{% static 'assets/metis-assets/icons/facebook-blue.svg' %}" alt=""></a>
+                <a class="me-2" href="#">
+                  <img src="{% static 'assets/metis-assets/icons/twitter-blue.svg' %}" alt=""></a>
+                <a class="me-2" href="#">
+                  <img src="{% static 'assets/metis-assets/icons/instagram-blue.svg' %}" alt=""></a>
+              </div>
+              </div>
+            </nav></div>
+        </section>
+
+        {% block content %}
+          
+          
+        
+          
+        {% endblock %}
+
+        <!--FOOTER-->
+          
+        <section class="py-5 ">
+          <div class="container">
+            <div class="row mb-5">
+              <div class="col-12 col-lg-2 mb-4 mb-lg-0 text-center text-lg-left">
+                <a class="navbar-brand" href="#">
+                  <img class="img-fluid" src="{% static 'assets/metis-assets/logos/metis/Untitled.svg' %}" alt="" width="106">
+                </a>
+              </div>
+              <div class="col-12 col-lg-4 mb-5 mb-lg-0 text-center text-lg-left">
+                <p class="text-muted fs-6 mb-0">MOOBEC S.A.S. | Plataforma de alquiler de autos compartidos. Reserva un auto, desbloquealo desde tu móvil y empeza tu viaje. Unete y aprovechas nuestros grandes descuentos</p>
+              </div>
+              <div class="col-12 col-lg-3 mb-4 mb-lg-0 text-center text-lg-left">
+                <h6 class="fw-bold">Office</h6>
+                <p class="fs-6 text-muted mb-0">Sky Building - Panal Coworking - Ofi. 423</p>
+              </div>
+              <div class="col-12 col-lg-3 text-center text-lg-left">
+                <h6 class="fw-bold">Contacts</h6>
+                <p class="fs-6 text-muted mb-0">info@moobec.com</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-lg-6 text-center text-lg-left order-1 order-lg-0">
+                <p class="small text-muted">© 2022. Todos los derechos reservados. </p>
+              </div>
+              <div class="col-12 col-lg-6 mb-4 mb-lg-0 text-center text-lg-right">
+                <a class="me-3" href="https://www.facebook.com/moobec">
+                  <img src="{% static 'assets/metis-assets/icons/facebook-blue.svg' %}" alt="">
+                </a>
+                <a class="me-3" href="#">
+                  <img src="{% static 'assets/metis-assets/icons/twitter-blue.svg' %}" alt="">
+                </a>
+                <a href="#">
+                  <img src="{% static 'assets/metis-assets/icons/instagram-blue.svg' %}" alt="">
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    </div>
+      
+    <script src="{% static 'assets/js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+    
+</body>
+</html>

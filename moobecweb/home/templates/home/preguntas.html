@@ -1,0 +1,760 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title%}Alquiler de autos y Carsharing {% endblock %}
+
+{% block header %}
+
+<div class="container">
+  <div class="col col-md-8 col-lg-6 col-xl-5 mx-auto text-center">
+    <span class="badge bg-primary rounded-pill">f.a.q</span>
+    <h2 class="mb-3 mt-4 fs-1 fw-bold">
+      <span>Como podemos </span>
+      <span class="text-primary">ayudarte ?</span>
+    </h2>
+    <p class="lead text-muted mb-0">encuentra las preguntas y respuestas mas relevantes para conductores y propietarios</p>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<section class="py-5 " style="background-size: contain; background-position: top; background-repeat: no-repeat; background-image: url('metis-assets/backgrounds/intersect.svg');">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-5 mx-auto">
+          <img class="img-fluid" src="metis-assets/illustrations/hardworking-man.png" alt="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="row">
+            <!--NAVBAR CONDUCTORES PROPIETARIOS-->
+            <nav>
+              <div class="nav nav-tabs justify-content-center  " id="nav-tab" role="tablist" >
+                <button class="nav-link active " id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><h5><strong>Conductores</strong> </h5></button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><h5><strong>Propietarios</strong> </h5></button>
+              </div>
+            </nav>
+            <!--NAVBAR CONDUCTORES PROPIETARIOS-->
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <br><br>
+                    <!--ACCORDION CONDUCTORES-->
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                <strong>Requisitos para alquilar un coche</strong> 
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                        <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                          <h6>
+                                            <span class="text-primary"><strong>Requisitos:</strong></span>
+                                          </h6>
+                                        </div>
+                                        <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                            <h6>
+                                              <span>Permiso de conducir válido (original, no copia).</span><br><br>
+                                              <span>Cumplir con las condiciones de edad (22) y un minimo de 2 años con el carnet de conducir</span><br><br>
+                                              <span>También deberás pagar por el alquiler con un método de pago a tu nombre</span><br><br>
+                                            </h6>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-lg-8 rounded  text-cente">
+                                        
+                                        <span>Para alquilar un auto de Moobec, tendrás que subir toda la documentacion requerida para poder verificar tu perfil, antes de que empiece el alquiler.</span><br><br>
+
+                                        <span><strong>Ademas, recuerda que en cada alquiler debes:</strong></span><br><br>
+                                        <ul>
+                                            <li>Permaneces dentro del territorio donde se realizo el alquiler.</li>
+                                            <li>No usar el coche para transporte de pasajeros.</li>
+                                            <li>Estar presente en el momento del inicio y la finalización del alquiler.</li>
+                                        </ul><br><br>
+                                        <button class="primary">buscar autos</button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!------>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                <strong>Métodos de pago aceptados</strong> 
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                        <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                          <h6>
+                                            <span class="text-primary"><strong>Recuerda:</strong></span>
+                                          </h6>
+                                        </div>
+                                        <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                            <h6>
+                                                 
+                                              <span>Debes pagar tu alquiler con una tarjeta de crédito a tu nombre</span><br><br>
+                                              <span>Sólo se aceptan pagos efectuados con tarjetas Visa - Mastercard - Diners Club - American Express.</span><br><br>
+                                              <span>No aceptamos tarjetas de débito o transferencia bancarias</span><br><br>
+                                            </h6>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-lg-8 rounded  text-cente">
+                                        
+                                        <span>Los cheques, dinero en efectivo, tarjetas de crédito de un solo uso, tarjetas de crédito de prepago y Maestro no son métodos de pago aceptados.</span><br><br>
+
+                                        <span><strong>Ademas, recuerda:</strong></span><br><br>
+                                        <ul>
+                                            <li>Todas las transacciones que se hacen a través de la plataforma son encriptadas.</li>
+                                            <li>Puedes pagar el alquiler con tarjeta de empresa.</li>
+                                            <li>Todos los alquileres tienen un deposito de seguridad.</li>
+                                            <li>Tener cancelado la totalidad del alquiler del auto.</li>
+                                        </ul><br><br>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!------>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                <strong>Verificacion de perfil</strong> 
+                            </button>
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                        <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                          <h6>
+                                            <span class="text-primary"><strong>Recuerda:</strong></span>
+                                          </h6>
+                                        </div>
+                                        <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                            <h6>
+                                                 
+                                              <span>Tu perfil deberá ser verificado manualmente por Moobec antes de que inicies el primer alquiler</span><br><br>
+                                              <span>Cada vez que cambies de documentacion tendras que actualizarla tambien en la plataforma</span><br><br>
+                                              <span>Solo se aceptaran documentos originales</span><br><br>
+                                            </h6>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-lg-8 rounded  text-cente">
+                                        
+                                        <span>Cada vez que tu alquiler se haya confirmado, se te pedirá que 
+                                            verifiques tu perfil online, para comprobar que tus documentos estan actualizados.
+                                        </span><br><br>
+
+                                        <span><strong>Ademas, recuerda:</strong></span><br><br>
+                                        <ul>
+                                            <li>Comprobar que tu información personal sea correcta. Tu nombre y apellidos, fecha de nacimiento, fecha de 
+                                                expiración del carnet de conducir y toda la información que aparece en tu cuenta debe ser idéntica a la 
+                                                que aparece en tu carnet de conducir y documento de identidad.</li>
+                                            <li>Subir fotos de tu documento de identidad (por delante y por detrás) o tu pasaporte (las dos páginas en 
+                                                las que aparece tu foto y firma). Asegúrate de que subes fotos claras y en las que se identifica bien la información del documento.</li>
+                                            <li>Subir fotos de tu carnet de conducir (por delante y por detrás).</li>
+                                            <li>Todo esto lo realizas desde tu perfil. <!--{% url 'dashboard' %--></li>
+                                        </ul>
+                                        <span>El proceso de verificación puede tardar hasta 24 horas, aunque el 90 % de la veces apenas tarda 2 horas, por lo que te 
+                                            recomendamos que verifiques tu perfil justo después de haber hecho tu primera reserva. Una vez tengas los documentos verificados, 
+                                            recibirás un email de confirmación.<br><br>
+                                            <strong>Importante:</strong>  Te contactaremos en caso que necesitemos informacion adicional. <br>
+                                            Si tu perfil no ha sido validado, te invitamos a consultar tus emails. Te hemos enviado un email en el que indicamos el motivo del rechazo. <br><br>
+                                            <strong>Para evitar rechazos en tu verificaion de perfil, recuerda: </strong><br>
+                                            <ul>
+                                                <li>Los datos de tu usuario en Moobec deben coincidir con los datos personales en tu carnet de conducir y documento de identidad.</li>
+                                                <li>Tu carnet de conducir debe estar firmado.</li>
+                                                <li> Envia la foto de tu carnet de conducir entero, por ambas caras.</li>
+                                                <li>Las fotos enviadas son legibles y claras</li>
+                                            </ul> 
+                                            
+                                        </span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!------>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                                  <strong>Planes de protección y cobertura del seguro</strong> 
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                              <div class="accordion-body">
+                                  <div class="row">
+                                      <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                            <h6>
+                                              <span class="text-primary"><strong>Recuerda:</strong></span>
+                                            </h6>
+                                          </div>
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                              <h6>
+                                                <span> Cuando alquilas un vehículo, tu alquiler está cubierto por nuestro seguro, independientemente del plan de protección que hayas elegido.</span><br><br>
+                                                <span>Asistencia en carretera 24/7 que se encarga del vehículo y de sus pasajeros en caso de accidente, avería o robo</span><br><br>
+                                              </h6>
+                                          </div>
+                                          
+                                      </div>
+                                      <div class="col-lg-8 rounded  text-cente">
+                                          
+                                          <span>Al momento de reservar tu alquiler, puedes elegir un planes de protección diferente al estandar. 
+                                            Para salir a la carretera con mayor tranquilidad, elige el plan de protección Premium. El plan Premium incluye un 
+                                            depósito de seguridad más bajo, así como un vehículo de sustitución en caso de avería o accidente durante el alquiler. <br><br>
+                                            El coste del plan de protección adicional <strong> no será reembolsado</strong> una vez finalizado el alquiler, incluso si 
+                                            no se ha producido ningún incidente que requiera su utilización.
+                                            </span><br><br>
+                                            <span>
+                                                <strong>Ejemplo: Seguro de proteccion Estandar</strong><br>
+                                                Proteccion incluida en todos los alquileres:
+                                                <ul>
+                                                    <li>Deposito de seguridad estandar es de $500 USD</li>
+                                                    <li>Si causas un daño que cuesta $1000 de reparación, pagarás $1000. 
+                                                        Si causas un daño cuya reparación cuesta $200, pagarás la totalidad de 
+                                                        los $200. Esta cantidad se deducirá de tu depósito de seguridad 
+                                                        y el resto se acreditará en tu cuenta bancaria.</li>
+                                                </ul>            
+                                            </span>
+                                            <span>
+                                                <strong>Ejemplo: Seguro de proteccion Premium</strong><br>
+                                                Si has adquirido el plan de protección Premium:
+                                                <ul>
+                                                    <li>Deposito de seguridad es de $300 USD</li>
+                                                    <li>Si causas un daño que cuesta $1000 de reparación, no tendrás que pagar nada. 
+                                                        En ausencia de cualquier otro cargo, tu depósito de seguridad 
+                                                        se acreditará en tu cuenta bancaria.</li>
+                                                </ul>            
+                                            </span>
+                                            <span>
+                                                <strong>Garantías y exclusiones del seguro</strong><br>
+                                                El seguro de Moobec Premium cubre:
+                                                <ul>
+                                                    <li>Daños al exterior del vehículo</li>
+                                                    <li>Daños a un tercero</li>
+                                                    <li>Fuego</li>
+                                                    <li>Cristal dañado</li>
+                                                </ul>            
+                                            </span>
+                                            <span>
+                                                El seguro de Moobec Premium <strong>no</strong> cubre:
+                                                <ul>
+                                                    <li>Neumáticos pinchados</li>
+                                                    <li>Error de combustible</li>
+                                                    <li>Llaves perdidas o dañadas</li>
+                                                    <li>Daños en el interior del vehículo</li>
+                                                    <li>El desgaste normal</li>
+                                                </ul>            
+                                            </span>
+                                            <span><strong>Accidente con un tercero conocido:</strong></span><br><br>
+                                            <span>En caso de un accidente con un tercero del que no seas responsable, 
+                                            se aplicará inicialmente el plan de proteccion. Se te reembolsará tan pronto como el seguro confirme 
+                                            que no eres responsable o una vez que el tercero haya aceptado el 
+                                            recurso interpuesto en su contra. Esta duración está fuera de nuestro 
+                                            control y puede durar varias semanas.
+                                            </span><br><br>
+                                            <span><strong>Accidente con un tercero no identificado:</strong></span><br><br>
+                                            <span>En el caso de un accidente con un tercero no identificado, 
+                                                serás responsable de los daños, y se aplicara el seguro de proteccion seleccionado.
+                                            </span><br><br>
+                                            <span>
+                                                <strong>Se me puede negar la cobertura del seguro?</strong><br>
+                                                Debes cumplir con todas nuestras condiciones de 
+                                                seguro. Se te puede negar cobertura de seguro si:
+                                                <ul>
+                                                    <li>El conductor no actúa como el principal conductor en todo el alquiler</li>
+                                                    <li>El alquiler no fue pagado online con una forma de pago a nombre del conductor</li>
+                                                    <li>El contrato de alquiler no está firmado por el conductor</li>
+                                                    <li>El conductor no está presente en la devolución del vehículo</li>
+                                                    <li>El conductor devuelve el coche fuera del período de alquiler</li>
+                                                    <li>El coche fue sacado de los países autorizados durante el alquiler</li>
+                                                </ul>
+                                                <strong>Tenga en cuenta también que algunos dispositivos y errores no están asegurados, y cualquier daño será bajo tu responsabilidad:</strong>
+                                                <ul>
+                                                    <li>Daños en el interior del vehículo (asientos, guantera, etc.)</li>
+                                                    <li>Errores de carburante</li>
+                                                    <li>Pérdida de llaves</li>
+                                                    <li>Cualquier ruptura como consecuencia de un mal comportamiento en tu nombre</li>
+                                                    <li>Cualquier empeoramiento de un daño o avería inicial</li>
+                                                </ul>            
+                                            </span>
+                                            <span>
+                                                <strong>Que pasa si tengo algun daño al vehículo?</strong><br>
+                                                La cantidad máxima que pagarías por cualquier daño al vehículo. 
+                                                El resto de los gastos de reparación están cubiertos por el seguro. <br><br>
+                                                <strong>Sólo se te cobrará si dañas el vehículo</strong><br><br>
+                                                <table class="table table-responsive">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Tipo de avería</th>
+                                                            <th>Minimo</th>
+                                                            <th>Premium</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td class="d-flex align-items-center">
+                                                          <img class="img-fluid" src="metis-assets/logos/react.svg" alt="">
+                                                          <div class="ps-3">
+                                                            <p class="mb-0 fw-bold">Avería al vehículo</p>
+                                                            <a class="text-decoration-none" href="#">ver pdf</a>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                          <span class="badge py-2 px-3 bg-danger rounded-pill text-uppercase">$1200</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge py-2 px-3 bg-success rounded-pill text-uppercase">$0</span>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td class="d-flex align-items-center">
+                                                          <img class="img-fluid" src="metis-assets/logos/react.svg" alt="">
+                                                          <div class="ps-3">
+                                                            <p class="mb-0 fw-bold">Incendio</p>
+                                                            <a class="text-decoration-none" href="#">ver pdf</a>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge py-2 px-3 bg-danger rounded-pill text-uppercase">$1200</span>
+                                                          </td>
+                                                          <td>
+                                                              <span class="badge py-2 px-3 bg-success rounded-pill text-uppercase">$0</span>
+                                                          </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td class="d-flex align-items-center">
+                                                          <img class="img-fluid" src="metis-assets/logos/react.svg" alt="">
+                                                          <div class="ps-3">
+                                                            <p class="mb-0 fw-bold">Robo</p>
+                                                            <a class="text-decoration-none" href="#">ver pdf</a>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge py-2 px-3 bg-warning rounded-pill text-uppercase">$3500</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge py-2 px-3 bg-warning rounded-pill text-uppercase">$3500</span>
+                                                        </td>
+                                                      </tr>
+                                                      <tr>
+                                                        <td class="d-flex align-items-center">
+                                                          <img class="img-fluid" src="metis-assets/logos/react.svg" alt="">
+                                                          <div class="ps-3">
+                                                            <p class="mb-0 fw-bold">Robo sin devolucion de llaves</p>
+                                                            <a class="text-decoration-none" href="#">ver pdf</a>
+                                                          </div>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge py-2 px-3 bg-warning rounded-pill text-uppercase">$5000</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="badge py-2 px-3 bg-warning rounded-pill text-uppercase">$5000</span>
+                                                        </td>
+                                                      </tr>  
+                                                    </tbody>
+                                                </table>
+                                                    <span><strong> Aviso:</strong>
+                                                    Si dañas el interior del vehículo, se te cobrará el importe total de la reparación.
+                                                    </span>            
+                                            </span>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                        <!------>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+                                  <strong>Depósito de gasolina</strong> 
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingFive">
+                              <div class="accordion-body">
+                                  <div class="row">
+                                      <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                            <h6>
+                                              <span class="text-primary"><strong>Recuerda:</strong></span>
+                                            </h6>
+                                          </div>
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                              <h6>
+                                                <span>Los precios de alquiler no incluyen la gasolina</span><br><br>
+                                                <span>Deberás devolver el auto con el mismo nivel de gasolina que tenía al inicio del alquiler.</span><br><br>
+                                                <span>Siempre se entrega el auto con tanque lleno</span><br><br>
+                                              </h6>
+                                          </div>
+                                          
+                                      </div>
+                                      <div class="col-lg-8 rounded  text-cente">
+                                          
+                                          <span>Al final de cada alquiler se hara una inspeccion del nivel de gasolina en el tanque.</span><br><br>
+  
+                                          <span><strong>En caso, de que devuelvas el deposito con menos de la cantidad con la 
+                                            que fue entregado al inicio del alquiler se procedera al cobro de la gasolina faltante: </strong></span><br><br>
+                                          <ul>
+                                              <li>El valor sera el precio oficial del pais en la que se realiza el alquiler</li>
+                                              <li>Ademas, cobraremos $0.5 ctvs. por cada litro faltante.</li>
+                                          </ul><br><br>
+                                          <button class="primary">buscar autos</button>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                        <!------->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix">
+                                  <strong>Limpieza</strong> 
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse " aria-labelledby="panelsStayOpen-headingSix">
+                              <div class="accordion-body">
+                                  <div class="row">
+                                      <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                            <h6>
+                                              <span class="text-primary"><strong>Recuerda:</strong></span>
+                                            </h6>
+                                          </div>
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                              <h6>
+                                                <span>Siempre debes devolver el auto tan limpio como estaba cuando lo recogiste.</span><br><br>
+                                                <span>Si fumas en el auto o si lo devuelves más sucio de lo que estaba antes, el propietario puede solicitar que te cobremos una tarifa de limpieza</span><br><br>
+                                                
+                                              </h6>
+                                          </div>
+                                          
+                                      </div>
+                                      <div class="col-lg-8 rounded  text-cente">
+                                          
+                                          <span>Si al comienzo de tu alquiler encuentras el coche todavía sucio de un 
+                                            conductor anterior, asegúrate de señalarlo durante la inspección
+                                          </span><br><br>
+  
+                                            <span><strong>Tarifas de limpieza</strong><br>
+                                                <span>Nuestro equipo revisara la informacion detallada 
+                                                    para decidir qué tarifa aplicar en función del tipo y la gravedad de la suciedad:
+                                                </span> 
+                                            </span><br><br>
+                                            <span><strong>Suciedad menor ($8):</strong>
+                                                Has hecho un uso normal del auto, pero lo devolviste visiblemente menos limpio en el interior y/o exterior que al principio. La limpieza de la suciedad no requerirá mucho tiempo ni productos/equipos específicos. Por ejemplo: la suciedad puede ser simplemente eliminada con un lavado a presión
+                                            </span><br><br>
+                                            <span><strong>Suciedad abundante ($30):</strong>
+                                                Has utilizado el auto de forma inadecuada y no has hecho ningún esfuerzo para limpiarlo. La limpieza de la suciedad requerirá mucho tiempo y/o esfuerzo, así como un equipo especial o un servicio profesional. 
+                                                Esta tarifa sólo se aplica al interior del coche. Por ejemplo: los asientos están manchados, hay suciedad muy incrustada, etc.
+                                            </span><br><br>
+                                            <span><strong>Fumar ($30):</strong>
+                                                Aplicamos esta tasa cuando hay rastros visuales de haber fumar (por ejemplo: cenizas o colillas) o si el propietario o el conductor posterior informan de un olor a tabaco en el interior del coche.
+                                                Si el nivel de suciedad justifica un servicio de limpieza profesional, se te cobrarán los costes asociados.
+                                            </span><br><br>
+                                            <span><strong>Consejos para limpiar el coche:</strong>
+                                                <ul>
+                                                    <li>Utiliza una simple toallita desinfectante para limpiar las superficies que se tocan con frecuencia: el volante, la consola central, la palanca de cambios, el freno de mano, los paneles de las puertas y las manillas.</li>
+                                                    <li>Sacude las alfombrillas delanteras y traseras si están sucias o tienen arena. Si puedes, utiliza una aspiradora para limpiar la suciedad más persistente.</li>
+                                                </ul>
+                                            </span><br><br>                                                                         
+                                      </div>                                  
+                                  </div>
+                              </div>
+                            </div>
+                        </div><br><br>
+
+                        <div class="row mb-5">
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                              <div class="p-4 rounded shadow-sm" style="background-color: #c3e8ff; ">
+                                <h5 class="mb-3 text-primary">Alquilar auto</h5>
+                                <ul>
+                                  <li class="mb-2 small text-muted text-primary">Requisitos </li>
+                                  <li class="mb-2 small text-muted">Preparar mi auto</li>
+                                  <li class="mb-2 small text-muted">Cambios de aceite</li>
+                                  <li class="small text-muted">Mi anuncio</li><br>
+                                  <a class="btn btn-primary" href="#">mas informacion</a>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                <div class="p-4 rounded shadow-sm" style="background-color: #c3e8ff; ">
+                                  <h5 class="mb-3 text-primary">Facturas - Impuestos</h5>
+                                  <ul>
+                                    <li class="mb-2 small text-muted text-primary">Requisitos </li>
+                                    <li class="mb-2 small text-muted">Preparar mi auto</li>
+                                    <li class="mb-2 small text-muted">Cambios de aceite</li>
+                                    <li class="small text-muted">Mi anuncio</li><br>
+                                    <a class="btn btn-primary" href="#">mas informacion</a>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                <div class="p-4 rounded shadow-sm" style="background-color: #c3e8ff; ">
+                                  <h5 class="mb-3 text-primary">Asistencia carreteras</h5>
+                                  <ul>
+                                    <li class="mb-2 small text-muted text-primary">Requisitos </li>
+                                    <li class="mb-2 small text-muted">Preparar mi auto</li>
+                                    <li class="mb-2 small text-muted">Cambios de aceite</li>
+                                    <li class="small text-muted">Mi anuncio</li><br>
+                                    <a class="btn btn-primary" href="#">mas informacion</a>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                <div class="p-4 rounded shadow-sm" style="background-color: #c3e8ff; ">
+                                  <h5 class="mb-3 text-primary">Para empresas</h5>
+                                  <ul>
+                                    <li class="mb-2 small text-muted text-primary">Requisitos </li>
+                                    <li class="mb-2 small text-muted">Preparar mi auto</li>
+                                    <li class="mb-2 small text-muted">Cambios de aceite</li>
+                                    <li class="small text-muted">Mi anuncio</li><br>
+                                    <a class="btn btn-primary" href="#">mas informacion</a>
+                                  </ul>
+                                </div>
+                              </div>
+                          </div>
+                    </div>
+                    <!--ACOORDION-->
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <br><br>
+                    <!--ACCORDION PROPIETARIOS-->
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <!---->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                  <strong>Cobertura del seguro y sus condiciones</strong> 
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                              <div class="accordion-body">
+                                  <div class="row">
+                                      <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                            <h6>
+                                              <span class="text-primary"><strong>Cobertura durante el alquiler:</strong></span>
+                                            </h6>
+                                          </div>
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                              <h6>
+                                                <span>Cambios de llantas.</span><br><br>
+                                                <span>Cristal dañado.</span><br><br>
+                                                <span>Error en el calculo de gasolina.</span><br><br>
+                                                <span>Limpieza de auto.</span>
+                                              </h6>
+                                          </div>
+                                          
+                                      </div>
+                                      <div class="col-lg-8 rounded  text-cente">
+                                          
+                                          <span>Para publicar tu auto en Moobec, deberas contar con seguro a todo riesgo.</span><br><br>
+  
+                                          <span><strong>Recuerda que, tu seguro debe cubrir:</strong></span><br><br>
+                                          <ul>
+                                              <li>Daños personales.</li>
+                                              <li>Daños en el coche, robo o siniestro ya sean bajo la responsabilidad del conductor o de un tercero.</li>
+                                              <li>Responsabilidad civil.</li>
+                                          </ul>
+                                          <span>Para poder beneficiarte del seguro, tienes que cumplir las siguientes condiciones:
+                                            <ul><br>
+                                                <li>Tu auto debe ser elegible</li>
+                                                <li>El conductor debe respetar las condiciones del alquiler</li>
+                                                <li>Haber realizado las verificaiones y la vuelta de inspeccion al inicio del alquiler</li>
+                                                <li>Mantener tu auto a punto en los alquileres</li>
+                                            </ul>
+                                            <strong> En caso de avería, si crees que el conductor es el causante y responsable, puedes buscar un perito experto para probarlo. </strong><a href="#"> ver lista</a><br><br>
+                                          </span>
+                                          
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!------>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                  <strong>Pagos</strong> 
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                              <div class="accordion-body">
+                                  <div class="row">
+                                      <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                            <h6>
+                                              <span class="text-primary"><strong>Necesitas:</strong></span>
+                                            </h6>
+                                          </div>
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                              <h6>
+                                                   
+                                                <span>Cuenta con el mismo nombre del propietario del auto</span><br><br>
+                                                <span>Poder aceptar transferencias bancarias</span><br><br>
+                                                <span>Cuenta en banco Pacifico, Pichincha, Guayaquil</span><br><br>
+                                              </h6>
+                                          </div> 
+                                      </div>
+                                      <div class="col-lg-8 rounded  text-cente">      
+                                          <span>Se te pagará por transferencia bancaria, a más tardar 3 días hábiles después 
+                                            de la finalización del alquiler. Después de eso, las transferencias suelen tardar 
+                                            entre 1 y 2 días laborables en llegar a tu cuenta bancaria. Esto significa que el 
+                                            pago aparecerá en tu cuenta bancaria en 4-5 días hábiles después de la finalización 
+                                            del alquiler.</span><br><br>
+                                          <span><strong>Si no recibes tus pagos, comprueba lo siguiente:</strong></span><br><br>
+                                          <ul>
+                                              <li>Asegúrate de que hayas introducido correctamente la informacion de tu cuenta bancaria.</li>
+                                              <li>Revisa tus correos electrónicos, incluida la bandeja de Spam, ya que podríamos haber solicitado que nos enviaras ciertos documentos de acuerdo con la ley contra el blanqueo de dinero.</li>
+                                          </ul><br><br>          
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!------>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                  <strong>Política de cancelación</strong> 
+                              </button>
+                              </button>
+                            </h2>
+                            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                              <div class="accordion-body">
+                                  <div class="row">
+                                      <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                            <h6>
+                                              <span class="text-primary"><strong>Recuerda:</strong></span>
+                                            </h6>
+                                          </div>
+                                          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+                                              <h6>    
+                                                <span>Tu perfil deberá ser verificado manualmente por Moobec antes de que inicies el primer alquiler</span><br><br>
+                                                <span>Cada vez que cambies de documentacion tendras que actualizarla tambien en la plataforma</span><br><br>
+                                                <span>Solo se aceptaran documentos originales</span><br><br>
+                                              </h6>
+                                          </div>             
+                                      </div>
+                                      <div class="col-lg-8 rounded  text-cente">           
+                                          <span>Cuando tu coche es reservado en Moobec, tanto tú como el conductor se
+                                            comprometen a cumplir con ese alquiler. Si alguno de los dos incumple
+                                            este compromiso cancelando, se pueden aplicar ciertas tasas.
+                                          </span><br><br>
+  
+                                            <span><strong>Si tu causas la cancelación:</strong><br>
+                                                Dependemos de los propietarios de autos como tú para ayudarnos a 
+                                                proporcionar un servicio fiable a los conductores. Cuando no proporcionas 
+                                                tu auto para un alquiler reservado, estás dejando de lado tu responsabilidad 
+                                                como propietario y en consecuencia se te puede cobrar una penalización.
+                                                Sin embargo, entendemos que pueden surgir situaciones imprevisibles. 
+                                                Por eso, sólo se te cobrará una penalización si has cancelado tus reservas + de 2 veces
+                                                en 30 dias. Si cancelas mas de 10 veces en 90 dias, podrías ser 
+                                                eliminado de la plataforma por completo y no se podra publicar nuevamente tu auto.  
+                                                (Pueden aplicarse excepciones en casos especiales, 
+                                                como cuando ocurren accidentes.)
+                                            </span><br>
+                                            <span><strong>Penalizaciones:</strong>
+                                                <ul>
+                                                    <li>$10 si la cancelación ha sido realizada con más de 48 horas antes del inicio del alquiler.</li>
+                                                    <li>$25 si la cancelación ha sido realizada con menos de 48 horas antes del inicio del alquiler.</li>
+                                                </ul>
+                                            </span>  
+                                          </span>
+                                          <span>
+                                            <strong>Si el conductor cancela:</strong><br>
+                                            <span>Los conductores pueden cancelar sin gastos en ciertas circunstancias, 
+                                                lo que significa que recibirán un reembolso completo y tu no obtendrás
+                                                una compensación. Por ejemplo:</span>
+                                                <ul>
+                                                    <li>Si cancelan dentro de 48 horas antes del alquiler o dentro de la hora siguiente a la confirmación de la reserva).</li>
+                                                    <li>En casos de fuerza mayor.</li>
+                                                    <li>Si su perfil no ha podido ser verificado.</li>
+                                                    <li>Si el alquiler no se ha podido llevar a cabo por problemas técnicos.</li>                                                
+                                                </ul>
+                                          </span>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div><br><br>
+                          
+                          <!---->
+                          <div class="row mb-5">
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                              <div class="p-4 rounded shadow-sm" style="background-color: #c3e8ff; ">
+                                <h5 class="mb-3 text-primary">Alquilar auto</h5>
+                                <ul>
+                                  <li class="mb-2 small text-muted text-primary">Requisitos </li>
+                                  <li class="mb-2 small text-muted">Preparar mi auto</li>
+                                  <li class="mb-2 small text-muted">Cambios de aceite</li>
+                                  <li class="small text-muted">Mi anuncio</li><br>
+                                  <a class="btn btn-primary" href="#">mas informacion</a>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                <div class="p-4 rounded shadow-sm" style="background-color: #c3e8ff; ">
+                                  <h5 class="mb-3 text-primary">Facturas - Impuestos</h5>
+                                  <ul>
+                                    <li class="mb-2 small text-muted text-primary">Requisitos </li>
+                                    <li class="mb-2 small text-muted">Preparar mi auto</li>
+                                    <li class="mb-2 small text-muted">Cambios de aceite</li>
+                                    <li class="small text-muted">Mi anuncio</li><br>
+                                    <a class="btn btn-primary" href="#">mas informacion</a>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                <div class="p-4 rounded shadow-sm" style="background-color: #c3e8ff; ">
+                                  <h5 class="mb-3 text-primary">Asistencia carreteras</h5>
+                                  <ul>
+                                    <li class="mb-2 small text-muted text-primary">Requisitos </li>
+                                    <li class="mb-2 small text-muted">Preparar mi auto</li>
+                                    <li class="mb-2 small text-muted">Cambios de aceite</li>
+                                    <li class="small text-muted">Mi anuncio</li><br>
+                                    <a class="btn btn-primary" href="#">mas informacion</a>
+                                  </ul>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6 col-lg-3 mb-4">
+                                <div class="p-4 rounded shadow-sm" style="background-color: #c3e8ff; ">
+                                  <h5 class="mb-3 text-primary">Para empresas</h5>
+                                  <ul>
+                                    <li class="mb-2 small text-muted text-primary">Requisitos </li>
+                                    <li class="mb-2 small text-muted">Preparar mi auto</li>
+                                    <li class="mb-2 small text-muted">Cambios de aceite</li>
+                                    <li class="small text-muted">Mi anuncio</li><br>
+                                    <a class="btn btn-primary" href="#">mas informacion</a>
+                                  </ul>
+                                </div>
+                              </div>
+                          </div>   
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+{% endblock %}

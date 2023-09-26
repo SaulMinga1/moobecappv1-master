@@ -1,0 +1,87 @@
+{% extends "layouts/cuenta_base.html" %}
+{% load static %}
+<!-- block title  Mis alquileres {{ user.groups.all.0.name }} endblock-->
+
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+
+{% block title %} Cuenta de:  {{ user.first_name}} {% endblock %}
+{% block content %}
+
+            <div class="col-sm-10">
+                    <div class="tab-content bg-white  rounded-3" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="#v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div class=" container-fluid p-3   shadow-sm p-4" >
+                                {% if messages %}
+                                    {% for message in messages %}
+                                     <div class="alert alert-dismissible fade show {{ message.tags }} m-2" id="msg" role="alert">
+                                     <strong>{{ message }}</strong>
+                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                     </div>
+                                    {% endfor %}
+                                {% endif %} 
+                                <form class="row g-3" action="" method='POST'>
+                                    {% csrf_token %}
+                                        <p class="text-secondary mb-0"><strong >Informacion Personal</strong></p><hr>
+                                        <div class="col-md-6 ">
+                                            <P class="text-secondary">Fecha de Nacimiento:</P>
+                                            {{form.DOB}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <P class="text-secondary">Lugar de Nacimiento:</P>
+                                            {{form.birth_place}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <P class="text-secondary">Direccion de Domicilio:</P>
+                                            {{form.direccion}}
+                                        </div>
+                                        <div class="col-md-3">
+                                            <P class="text-secondary">Ciudad:</P>
+                                            {{form.ciudad}}
+                                        </div>
+                                        <div class="col-md-3">
+                                            <P class="text-secondary">Pais:</P>
+                                            {{form.pais}}
+                                        </div> 
+                                        <p class="text-secondary mt-4 mb-0"><strong >Licencia de Conducir</strong></p><hr>
+                                        <div class="col-md-4">
+                                            <P class="text-secondary"># de Licencia:</P>
+                                            {{form.licencia_conductor}}
+                                        </div>
+                                        <div class="col-md-4">
+                                            <P class="text-secondary">Fecha de emision:</P>
+                                            {{form.fecha_emision_licencia}}
+                                        </div>
+                                        <div class="col-md-4">
+                                            <P class="text-secondary">Pais de emision:</P>
+                                            {{form.pais_emision_licencia}}
+                                        </div>
+
+                                        <p class="text-secondary mb-0 "><strong >Contacto</strong></p><hr>
+                                        <div class="col-md-6">
+                                            <P class="text-secondary ">Numero de telefono:</P>
+                                            {{form.numero_telefono}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <P class="text-secondary">Datos Adicionales:</P>
+                                            {{form.bio}}
+                                        </div>
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <button type="submit" class="btn btn-primary me-md-2">Guardar</button>
+                                        </div>                           
+                                </form><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+{% endblock %}
+
+

@@ -1,0 +1,64 @@
+{% extends "layouts/cuenta_base.html" %}
+{% load static %}
+<!-- block title  Mis alquileres {{ user.groups.all.0.name }} endblock-->
+
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+<!--PONERLA FUERA DE CARPETA CONDUCTORES-->
+
+{% block title %} Cuenta de:  {{ user.first_name}} {% endblock %}
+{% block content %}
+
+                
+                <div class="col-sm-10 ">
+                    {% if messages %}
+                        {% for message in messages %}
+                          <div class="alert alert-dismissible fade show {{ message.tags }} m-2" id="msg" role="alert">
+                          <strong>{{ message }}</strong>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+                        {% endfor %}
+                    {% endif %}
+                    <div class="tab-content bg-white  rounded-3" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="#v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div class=" container-fluid p-3  shadow-sm p-4" >
+                                <form class="row g-3" action="" method="POST">
+                                    {% csrf_token %}
+                                    
+                                        <p class="text-secondary mb-0"><strong >Perfil Usuario</strong></p>
+                                        <div class="col-md-6 ">
+                                            <P class="text-secondary">Usuario:</P>
+                                            {{form.username}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <P class="text-secondary">Correo:</P>
+                                            {{form.email}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <P class="text-secondary">Nombre:</P>
+                                            {{form.first_name}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <P class="text-secondary">Apellido:</P>
+                                            {{form.last_name}}
+                                        </div>
+                                            
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <button type="submit" class="btn btn-primary me-md-2">Guardar</button>
+                                        </div>                           
+                                </form><br>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            
+{% endblock %}
+
+
+

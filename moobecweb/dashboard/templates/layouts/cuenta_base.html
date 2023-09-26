@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Moobec |{% block title %}  {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap/bootstrap.min.css' %}">
+    <link rel="icon" href="{% static 'assets/favicon.ico' %}">
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <!--link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css"-->
+</head>
+<body >
+  <section class="position-relative overflow-hidden ">
+    <div class="container-fluid ">
+      <nav class="position-relative navbar navbar-expand-lg navbar-light  "><a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'assets/metis-assets/logos/metis/Untitled.svg' %}" alt="moobec" width="106"></a>
+        <button class="navbar-toggler" type="button" data-toggle="side-menu" data-target="#sideMenuHeaders08" aria-controls="sideMenuHeaders08" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav position-absolute top-50 start-50 translate-middle">
+              <!--li class="nav-item me-2"><a class="nav-link" href="#">Product</a></li-->
+              <li class="nav-item me-2"><a class="nav-link" href="#">para empresas</a></li>
+              <li class="nav-item me-2"><a class="nav-link" href="{% url 'preguntas' %}">Preguntas?</a></li>
+              <!--li class="nav-item"><a class="nav-link" href="#">Features</a></li-->
+          </ul>
+          {% if user.is_authenticated  %}
+              <!--div class="ms-auto"><a class="btn btn-outline-primary me-2" href="accounts/logout/">log out</a-->
+              <div class="ms-auto">
+                  <a class="btn btn-outline-primary me-2" href="{% url 'dashboard' %}">{{user.first_name}}</a>
+                  <a class="btn btn-outline-primary me-2" href="{% url 'logout'%}">log out</a> 
+                  <a class="btn btn-primary" href="{% url 'anunciarauto' %}">Anuncia tu auto</a>
+              </div>
+              {% else %}
+              <div class="ms-auto"><a class="btn btn-outline-primary me-2" href="accounts/login/">Log In</a><a class="btn btn-primary" href="{% url 'anunciarauto' %}">Anuncia tu auto</a></div>
+              {% endif %}
+        </div>
+      </nav>
+      <!--section class="position-relative overflow-hidden"-->
+      <div class="container-fluid border-bottom border-light border-top ">
+        <nav class="position-relative navbar navbar-expand-lg navbar-light  ">
+          <div class="collapse navbar-collapse">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/' %}active{% endif %} " aria-current="page" href="{% url 'dashboard' %}">
+              <span class="me-1">
+                <i class="fa-solid fa-gauge"></i>
+              </span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <!--li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'home' %}">
+              <span class="me-1">
+                <i class="fa-solid fa-bell"></i>
+              </span>
+              <span>Alquileres</span>
+            </a>
+          </li-->
+          {% if user.groups.all.0.name == 'Owner' %}
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'alquileresConductores' %}">
+                <span class="me-1">
+                  <i class="fa-solid fa-bell"></i>
+                </span>
+                <span>Solicitudes</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'misautos' %}">
+                <span class="me-1">
+                  <i class="fa-solid fa-car"></i>
+                </span>
+                <span>Mis autos</span>
+              </a>
+            </li>
+          {% elif user.groups.all.0.name == 'Conductor' %}
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'alquileresConductores' %}">
+                <span class="me-1">
+                  <i class="fa-solid fa-bell"></i>
+                </span>
+                <span>Alquileres</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'pagosConductores' %}">
+                <span class="me-1">
+                  <i class="fa-solid fa-car"></i>
+                </span>
+                <span>Pagos</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'misreclamos' %}">
+                <span class="me-1">
+                  <i class="fa-solid fa-sheet-plastic"></i>
+                </span>
+                <span>Reclamos</span>
+              </a>
+            </li>
+          {% elif user.is_staff%}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">
+              <span class="me-1">
+                <i class="fa-solid fa-car"></i>
+              </span>
+              <span>Bookings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">
+              <span class="me-1">
+                <i class="fa-solid fa-car"></i>
+              </span>
+              <span>Pagos</span>
+            </a>
+          </li>
+          {% endif %}
+          
+          <li class="nav-item">
+            <a class="nav-link {% if 'perfil/' in request.path %}active{% endif %} " href="{% url 'profile' %}">
+              <span class="me-1">
+                <i class="fa-solid fa-user"></i>
+              </span>
+              <span>Cuenta</span>
+            </a>
+          </li>
+          <!--li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li-->
+        </ul></div></nav>
+        </div> 
+      <!--/section-->
+      
+ 
+    </div>
+    <!------------- HEADER-------------->
+      
+
+    <!--nav phones-->
+    <div class="d-none fixed-top top-0 bottom-0" id="sideMenuHeaders08">
+      <div class="position-absolute top-0 end-0 bottom-0 start-0 bg-dark" style="opacity: 0.7"></div>
+      <nav class="navbar navbar-light position-absolute top-0 bottom-0 start-0 w-75 pt-3 pb-4 px-4 bg-white" style="overflow-y: auto;"><div class="d-flex flex-column w-100 h-100">
+        <!--div class="d-flex justify-content-between mb-4">
+          <a href="#">
+            <img class="img-fluid" src="{% static 'assets/metis-assets/logos/metis/metis.svg' %}" alt="" width="106"></a>
+          <button class="btn-close" type="button" data-toggle="side-menu" data-target="#sideMenuHeaders08" aria-controls="sideMenuHeaders08" aria-label="Close"></button>
+        </div-->
+        <!--div class="d-flex align-items-center">
+          <img class="me-4 img-fluid rounded-2" style="width: 40px; height: 40px;" src="https://images.unsplash.com/photo-1593789382576-54f489574d26?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=faces&amp;cs=tinysrgb&amp;fit=crop&amp;h=128&amp;w=128" alt="">
+          <div class="me-4">
+            <p class="mb-0 fw-bold text-gray">{{user.first_name}}</p>
+            <p class="mb-0">Admin</p>
+          </div>
+          <a href="#">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 1V10.3333" stroke="#7A899B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M1 7L6 11L11 7" stroke="#7A899B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div-->
+        
+        <div class=" mb-3 d-flex align-items-center ">
+          <img class="me-4 img-fluid rounded-2" style="width: 40px; height: 40px;" src="https://images.unsplash.com/photo-1593789382576-54f489574d26?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=faces&amp;cs=tinysrgb&amp;fit=crop&amp;h=128&amp;w=128" alt="">
+          <div class="me-4 ">
+            <p class="mb-0 fw-bold text-gray">{{user.first_name}}</p>
+            {% if user.is_staff %}
+              <span>
+                <p class="mb-0 badge bg-warning">Staff</p>
+              </span>
+            {% elif user.groups.all.0.name == 'owner'  %}
+              <span>
+                <p class="mb-0 badge bg-success">Propietario</p>
+              </span>
+            {% else %}
+              <span>
+                <p class="mb-0 badge bg-primary">Conductor</p>
+              </span>
+            {% endif %}
+          </div>
+
+          <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-2">
+              <button class="btn-close" type="button" data-toggle="side-menu" data-target="#sideMenuHeaders08" aria-controls="sideMenuHeaders08" aria-label="Close"></button>
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <div>
+          <ul class="navbar-nav mb-4">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Dahboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Alquileres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Autos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Estadisticas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">Cuenta</a>
+            </li>
+            <!--li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li-->
+          </ul>
+          <div class="border-top border-light bg-light pt-4 mb-5 ">
+            <div class="container   " >
+              <span>
+                <div class="row">
+                  <a class="nav-link " href="#">
+                    <div class="row">
+                      <div class="col">
+                        <span>Preguntas</span>
+                      </div>
+                      <div class="col-2">
+                        <span><i class="fa-solid fa-circle-question"></i></span>
+                      </div>
+                    </div>
+                    <div>
+                    </div>                                     
+                  </a>
+                </div>                  
+              </span>
+              
+              <span>
+                <div class="row">
+                  <a class="nav-link" href="">
+                    <div class="row">
+                      <div class="col">
+                        <span>Alquila tu auto</span>
+                      </div>
+                      <div class="col-2">
+                        <span><i class="fa-solid fa-car"></i></span>
+                      </div>
+                    </div>
+                    <div>
+                    </div>                                     
+                  </a>
+                </div>                  
+              </span>
+
+              <span>
+                <div class="row">
+                  <a class="nav-link" href="{% url 'logout' %}">
+                    <div class="row">
+                      <div class="col">
+                        <span>Para empresas</span>
+                      </div>
+                      <div class="col-2">
+                        <span><i class="fa-solid fa-briefcase"></i></span>
+                      </div>
+                    </div>
+                    <div>
+                    </div>                                     
+                  </a>
+                </div>                  
+              </span>
+
+              <span >
+                <div class="row">
+                    <a class="nav-link" href="{% url 'logout' %}">
+                      <div class="row">
+                        <div class="col">
+                          <span>Cerrar sesion</span>
+                        </div>
+                        <div class="col-2">
+                          <span><i class="fa-solid fa-right-from-bracket"></i></span>
+                        </div>
+                      </div>
+                      <div>
+                      </div>                                     
+                    </a>
+                  </div>                  
+              </span> 
+          </div>
+        </div>
+        <span class="mb-3">
+          <div class="mt-auto">
+            <p>
+              <span>Contactanos en: </span>
+              <a href="#">info@moobec.com</a>
+            </p>
+            <a class="me-2" href="https://www.facebook.com/moobec">
+              <img src="{% static 'assets/metis-assets/icons/facebook-blue.svg' %}" alt=""></a>
+            <a class="me-2" href="#">
+              <img src="{% static 'assets/metis-assets/icons/twitter-blue.svg' %}" alt=""></a>
+            <a class="me-2" href="#">
+              <img src="{% static 'assets/metis-assets/icons/instagram-blue.svg' %}" alt=""></a>
+          </div><br>
+        </span>
+      </nav>
+
+    </div>
+    <!--nav phones-->
+  <!--/section-->
+  </section>
+
+  
+  <div class="container-fluid border-bottom border-light border-top shadow-sm" style="background-color: #F8F7F8;">
+    <div class="mt-4 mb-4">
+      <div class="container-fluid bg-light rounded-3">
+        <!--VERTICAL TABS-->
+        <section class="py-8" >
+        <div class="container">
+             
+            <div class="row ">
+                
+                <div class="col-sm-2 ">  
+                    <div class="nav flex-column nav-pills  " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link {% if 'editar/' in request.path %}active {% endif %}" id="v-pills-home-tab" data-toggle="pill" href="{% url 'profile' %}" role="tab" aria-controls="v-pills-home" aria-selected="true">Perfil</a>
+                        {% if user.groups.all.0.name == 'Conductor' %}
+                          <a class="nav-link {% if 'licencia/' in request.path %}active {% endif %}" id="v-pills-licencia-tab" data-toggle="pill" href="{% url 'licencia' %}" role="tab" aria-controls="v-pills-licencia" aria-selected="false">Licencia de Conducir</a>
+                          <a class="nav-link {% if 'verificacion/' in request.path %}active {% endif %}" id="v-pills-profile-tab" data-toggle="pill" href="{% url 'verificacion' %}" role="tab" aria-controls="v-pills-profile" aria-selected="false">Verificacion Perfil1</a>
+                        {% elif user.groups.all.0.name == 'Owner' %}
+                          <a class="nav-link {% if 'infopropietarios/' in request.path %}active {% endif %}" id="v-pills-profile-tab" data-toggle="pill" href="{% url 'infoPropietarios' %}" role="tab" aria-controls="v-pills-profile" aria-selected="false">Info Propietario</a>
+                          <a class="nav-link {% if 'verificacion/' in request.path %}active {% endif %}" id="v-pills-licencia-tab" data-toggle="pill" href="{% url 'verificacion-propietarios' %}" role="tab" aria-controls="v-pills-licencia" aria-selected="false">Verificar Perfil</a>
+                          <a class="nav-link {% if 'notificaciones/' in request.path %}active {% endif %}" id="v-pills-profile-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-profile" aria-selected="false">Notificaciones</a>
+                        {% else %}
+                          <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-messages" aria-selected="false">Notificacines</a>
+                          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false">Credito</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% block content %}
+                <div class="col-sm-10 ">
+                    {% if messages %}
+                        {% for message in messages %}
+                          <div class="alert alert-dismissible fade show {{ message.tags }} m-2" id="msg" role="alert">
+                          <strong>{{ message }}</strong>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+                        {% endfor %}
+                    {% endif %}
+                    <div class="tab-content " id="v-pills-tabContent">
+                        <div class="tab-pane  fade show active" id="#v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div class=" container-fluid p-3 bg-white border rounded-3  shadow-sm" >
+                                <form class="row g-3" action="" method="POST">
+                                    {% csrf_token %}
+                                    
+                                        <p class="text-primary"><strong >Perfil Usuario</strong></p>
+                                        <div class="col-md-6 ">
+                                            <P class="text-secondary">Usuario:</P>
+                                            {{form.username}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <P class="text-secondary">Correo:</P>
+                                            {{form.email}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <P class="text-secondary">Nombre:</P>
+                                            {{form.first_name}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <P class="text-secondary">Apellido:</P>
+                                            {{form.last_name}}
+                                        </div>
+                                            
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <button type="submit" class="btn btn-primary me-md-2">Guardar</button>
+                                        </div>                           
+                                </form><br>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+        </section>
+      </div>
+    </div>  
+</div>
+
+
+
+  <section class="py-5 bg-dark">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-12 col-lg-2 mb-4 mb-lg-0 text-center text-lg-left">
+          <a class="navbar-brand" href="#">
+            <img class="img-fluid" src="{% static 'assets/metis-assets/logos/metis/Untitled.svg' %}" alt="" width="106">
+          </a>
+        </div>
+        <div class="col-12 col-lg-4 mb-5 mb-lg-0 text-center text-lg-left">
+          <p class="text-muted fs-6 mb-0 text-secondary">MOOBEC S.A.S. | Plataforma de alquiler de autos compartidos. Reserva un auto, desbloquealo desde tu móvil y empeza tu viaje. Unete y aprovechas nuestros grandes descuentos</p>
+        </div>
+        <div class="col-12 col-lg-3 mb-4 mb-lg-0 text-center text-lg-left">
+          <h6 class="fw-bold">Office</h6>
+          <p class="fs-6 text-muted mb-0">Sky Building - Panal Coworking - Ofi. 423</p>
+        </div>
+        <div class="col-12 col-lg-3 text-center text-lg-left">
+          <h6 class="fw-bold">Contacts</h6>
+          <p class="fs-6 text-muted mb-0">info@moobec.com</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-6 text-center text-lg-left order-1 order-lg-0">
+          <p class="small text-muted">© {{ current_year }}. Todos los derechos reservados. </p>
+        </div>
+        <div class="col-12 col-lg-6 mb-4 mb-lg-0 text-center text-lg-right">
+          <a class="me-3" href="https://www.facebook.com/moobec">
+            <img src="{% static 'assets/metis-assets/icons/facebook-blue.svg' %}" alt="">
+          </a>
+          <a class="me-3" href="#">
+            <img src="{% static 'assets/metis-assets/icons/twitter-blue.svg' %}" alt="">
+          </a>
+          <a href="#">
+            <img src="{% static 'assets/metis-assets/icons/instagram-blue.svg' %}" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+    <script src="{% static 'assets/js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="{% static 'assets/js/charts-demo.js' %}"></script>
+    
+    <script >
+      var message_ele = document.getElementById("msg");
+      setTimeout(function(){ 
+         message_ele.style.display = "none"; 
+      }, 3000);
+    </script>
+
+</body>
+</html>

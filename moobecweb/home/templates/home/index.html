@@ -1,0 +1,242 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title%}Alquiler de autos y Carsharing {% endblock %}
+
+{% block header %}
+
+<div class="container">
+  <div class="col col-md-8 col-lg-6 col-xl-5 mx-auto text-center">
+    <span class="badge bg-primary rounded-pill">renta de autos</span>
+    <h2 class="mb-3 mt-4 fs-1 fw-bold">
+      <span>Alquila un auto en menos de </span>
+      <span class="text-primary">3 minutos</span>
+    </h2>
+    <p class="lead text-muted mb-0">para viajar con la familia, los amigos o el trabajo. Tenemos lo que necesitas</p>
+    <div class="ms-auto">
+      <br>
+      <a class="btn btn-primary" href="{% url 'rentals' %}">Buscar auto</a>
+    </div> 
+    <br>
+    <br>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <br><br>
+    <!-----CAR CATEGORIES--->
+      <div class="row">
+           
+          <div class="col-12 col-md-6 col-lg-3 mb-4">
+            <a href="{% url 'login' %}">
+              <div class="  py-5 px-4 rounded shadow-sm text-center" style="background-color: #b15b09;">
+                <span class="text-primary">            
+                  <img class="img-fluid" src="{% static 'assets\metis-assets\logos\brands\chevrolet-colombia-onix-turbo-rs-garantia.webp' %}" alt=""><a class="lead text-muted mb-0" style="text-decoration: none;"></a>
+                </span>
+              </div>
+            </a>
+            <div class="py-1 px-4 bg-light rounded shadow-sm ">
+              <h6>
+                <span class="text-primary"><strong>pequeño</strong></span>
+              </h6>
+            </div>
+          </div>
+        <div class="col-12 col-md-6 col-lg-3 mb-4">
+          <a href="{% url 'login' %}">
+            <div class=" py-5 px-4  rounded shadow-sm text-center" style="background-color: #c3e8ff;">
+              <span class="text-primary">            
+                <img class="img-fluid" src="{% static 'assets\metis-assets\logos\brands\tracker.webp' %}" alt=""><a class="lead text-muted mb-0" style="text-decoration: none;"></a>
+              </span>
+            </div>
+          </a>
+          <div class="py-1 px-4 bg-light rounded shadow-sm ">
+            <h6>
+              <span class="text-primary"><strong>suv</strong></span>
+            </h6>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 mb-4">
+          <a href="{% url 'login' %}">
+            <div class="py-5 px-4 rounded shadow-sm text-center " style="background-color: #0972b1;">
+              <span class="text-primary">            
+                <img class="img-fluid" src="{% static 'assets\metis-assets\logos\brands\camionetatr.png' %}" alt=""><a class="lead text-muted mb-0" style="text-decoration: none;"></a>
+              </span>
+            </div>
+          </a>
+            <div class="py-1 px-4 bg-light rounded shadow-sm ">
+              <h6>
+                <span class="text-primary"><strong>camioneta</strong></span>
+              </h6>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 mb-4">
+          <a href="{% url 'login' %}">
+            <div class=" py-5 px-4 rounded shadow-sm text-center" style="background-color: #fd830d;">
+              <span class="text-primary">            
+                <img class="img-fluid" src="{% static 'assets\metis-assets\logos\brands\carnival.png' %}" alt=""><a class="lead text-muted mb-0" style="text-decoration: none;"></a>
+              </span>
+            </div>
+          </a>
+            <div class="py-1 px-4 bg-light rounded shadow-sm "> 
+              <h6>
+                <span class="text-primary"><strong>van</strong></span>
+              </h6>
+            </div>
+        </div>
+      </div>
+      <!-----CAR CATEGORIES---->
+  <br>
+  <BR></BR>
+
+          <div>
+            <div class="row d-flex align-items-center mb-4">
+              <div class="col-12 col-lg-6">
+                <h2 class="mb-4 fs-1 lh-base fw-bold">
+                  <span>Disfruta un auto </span>
+                  <span class="text-primary">sin que sea tuyo.</span>
+                  <span>Nosotros tenemos lo que necesitas</span>
+                </h2>
+              </div>
+              <div class="col-12 col-lg-5">
+                <p class="text-muted lh-lg">alquila un auto por dia, o semanas. Tan facil como buscar el auto que mas te guste y dar el boton de reservar. Todos nuestros alquileres estan asegurados mientras dure el alquiler.</p>
+                <div class="col-12 mb-3"><a class="btn btn-primary auto" href="#">Como funciona</a></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="py-5 px-4 bg-white rounded shadow-sm text-center">
+                  <span class="text-primary">
+                    <svg width="40" height="40" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg></span>
+                  <h6 class="fw-bold my-3">Precios Flexibles</h6>
+                  <p class="text-muted">Tenemos autos desde $35/dia. 10% descuento en alquileres de + 15 dias.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="py-5 px-4 bg-white rounded shadow-sm text-center">
+                  <span class="text-primary">
+                    <svg width="40" height="40" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg></span>
+                  <h6 class="fw-bold my-3">Autos a tu eleccion</h6>
+                  <p class="text-muted">Para salidas con tu familia, amigos o el trabajo. Autos para toda ocasion.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="py-5 px-4 bg-white rounded shadow-sm text-center">
+                  <span class="text-primary">
+                    <svg width="40" height="40" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></span>
+                  <h6 class="fw-bold my-3">Asistencia 24/7</h6>
+                  <p class="text-muted">Estaras protegido mientras dure el alquiler del auto. 24/7</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="py-5 px-4 bg-white rounded shadow-sm text-center">
+                  <span class="text-primary">
+                    <svg width="40" height="40" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></span>
+                  <h6 class="fw-bold my-3">Seguro Incluido</h6>
+                  <p class="text-muted">Estaras cubierto desde el momento que te subes a tu auto.</p>
+                </div>
+              </div>
+            </div>
+          </div><br><br>
+          
+</section>
+
+        <!------------>
+
+        <section class="py-5">
+          <div class="container">
+            <br>
+            <div class="row mb-5">
+              <div class="col-8 col-lg-6 mx-auto text-center">
+                <span class="badge rounded-pill bg-primary">en 3 minutos o menos</span>
+                <h2 class="mt-4 mb-3 fs-1 fw-bold">
+                  <span>La manera</span>
+                  <span class="text-primary">mas rapida</span>
+                  <span>de reservar un auto.</span>
+                </h2>
+                <p class="text-muted lh-lg">Sige estos pasos y accede a la flota de autos de alquiler de moobec. Asi de facil!</p>
+              </div>
+            </div>
+            <div class="row d-flex mx-auto position-relative">
+              <div class="position-absolute px-5" style="top: 25%; left: 0;">
+                <div class="d-none d-md-block w-75 py-1 mx-auto bg-white shadow-sm"></div>
+              </div>
+              <div class="col">
+                <div class="row">
+                  <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4" style="z-index: 10;">
+                    <div class="mb-4 d-flex align-items-center justify-content-center shadow-sm bg-white rounded-circle" style="width: 100px; height: 100px;">
+                      <div class="d-flex align-items-center justify-content-center bg-primary text-white fw-bold rounded-circle" style="width: 90%; height: 90%;">1</div>
+                    </div>
+                    <h5 class="fw-bold text-center">Registrate</h5>
+                  </div>
+                  <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4" style="z-index: 10;">
+                    <div class="mb-4 d-flex align-items-center justify-content-center shadow-sm bg-white rounded-circle" style="width: 100px; height: 100px;">
+                      <div class="d-flex align-items-center justify-content-center bg-light fw-bold rounded-circle" style="width: 90%; height: 90%;">2</div>
+                    </div>
+                    <h5 class="fw-bold text-muted text-center">Verifica tu identidad</h5>
+                  </div>
+                  <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4" style="z-index: 10;">
+                    <div class="mb-4 d-flex align-items-center justify-content-center shadow-sm bg-white rounded-circle" style="width: 100px; height: 100px;">
+                      <div class="d-flex align-items-center justify-content-center bg-light fw-bold rounded-circle" style="width: 90%; height: 90%;">3</div>
+                    </div>
+                    <h5 class="fw-bold text-muted text-center">Busca un auto</h5>
+                  </div>
+                  <div class="col-6 col-md-3 d-flex flex-column align-items-center mb-4" style="z-index: 10;">
+                    <div class="mb-4 d-flex align-items-center justify-content-center shadow-sm bg-white rounded-circle" style="width: 100px; height: 100px;">
+                      <div class="d-flex align-items-center justify-content-center bg-light fw-bold rounded-circle" style="width: 90%; height: 90%;">4</div>
+                    </div>
+                    <h5 class="fw-bold text-muted text-center">Reserva</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!------------>
+        <section class="py-5 bg-light">
+          <div class="container">
+            <br>
+            <div class="py-5 px-4 bg-primary text-white rounded shadow-sm">
+              <div class="row">
+                <div class="col-12 col-lg-10 mx-auto">
+                  <div class="row align-items-center">
+                    <div class="col-12 col-lg-6 mb-4 text-center text-lg-left">
+                      <h2 class="mb-3 fs-1 fw-bold">
+                        <span>Tienes un auto?</span>
+                        <span class="text-warning">ponlo a trabajar!</span>
+                        <span>en moobec</span>
+                      </h2>
+                      <p class="mb-0 text-white-50">y gana hasta $600 al mes compartiendo tu auto con nosotros*</p>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                      <div class="row justify-content-center justify-content-lg-end">
+                        <div class="col-12 col-md-8 mb-3 mb-md-0">
+                          <!--div class="input-group">
+                            <span class="input-group-text bg-light rounded-left px-3">
+                              <svg width="24" height="24" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                              </svg>
+                            </span>
+                            <input class="form-control" type="text" placeholder="Type your e-mail">
+                          </div-->
+                        </div>
+                        <div class="col-12 col-md-auto">
+                          <!--button class="btn btn-light w-100" type="submit">Sign Up</button-->
+                          <div class="col-12 mb-3"><a class="btn btn-light w-100" href="#">anunciar mi auto</a></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+          </div>
+        </section>
+
+{% endblock %}

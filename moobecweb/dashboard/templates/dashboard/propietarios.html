@@ -1,0 +1,266 @@
+{% extends "layouts/dashboard_base.html" %}
+{% load static %}
+{% block title %} Dashboard Propietarios: {{ user.groups.all.0.name }} {% endblock %}
+
+{% block content %}
+<div class="container-fluid border-bottom border-light border-top shadow-sm" style="background-color: #F8F7F8;">
+    <div class="mt-4 mb-4">
+      <div class="container-fluid bg-white rounded-3">
+        <!--cards-->
+        <section>
+          <div class="py-4">
+            <div class="container">
+              <div class="row text-center mt-2">
+
+                <div class="col-12 col-md-6 col-lg-3 mb-2 ">
+                  <div class="row">
+                    <div class="container">
+                      <a class="nav-link m-2 shadow-sm rounded" href="{% url 'home' %}" style="background-color: #c3e8ff;">
+                      <div class="col-auto">
+                        <span class="me-1">
+                          <i class="fa-solid fa-car"></i>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <h4 class="fw-bold mb-0">250 324</h4>
+                        <span>
+                          <p class="text-dark fw-bold">Alquileres</p>
+                        </span>
+                      </div>
+                    </a>
+                    </div>       
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3 mb-3 ">
+                  <div class="row">
+                    <div class="container ">
+                      <a class="nav-link m-2  shadow-sm rounded" href="{% url 'home' %}" style="background-color: #c3e8ff;">
+                      <div class="col-auto">
+                        <span class="me-1">
+                          <i class="fa-solid fa-road"></i>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <h4 class="fw-bold mb-0">250 324</h4>
+                        <span >
+                          <p class="text-dark fw-bold">Km Recorridos</p>
+                        </span>
+                      </div>
+                    </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                  <div class="row">
+                    <div class="container ">
+                      <a class="nav-link m-2 shadow-sm rounded" href="{% url 'home' %}" style="background-color: #c3e8ff;">
+                      <div class="col-auto">
+                        <span >
+                          <i class="fa-solid fa-piggy-bank"></i>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <h4 class="fw-bold mb-0">250 324</h4>
+                        <span >
+                          <p class="text-dark fw-bold">Puntos Acumulados</p>
+                        </span>
+                      </div>
+                    </a>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-12 col-md-6 col-lg-3 mb-3">
+                  <div class="row">
+                    <div class="container ">
+                      <a class="nav-link m-2 shadow-sm rounded" href="{% url 'home' %}" style="background-color: #c3e8ff;">
+                      <div class="col-auto">
+                        <span class="me-1">
+                          <i class="fa-solid fa-percent"></i>
+                        </span>
+                      </div>
+                      <div class="col">
+                        <h4 class="fw-bold mb-0">250 324</h4>
+                        <span class="">
+                          <p class="text-dark fw-bold">Descuento</p>
+                        </span>
+                      </div>
+                    </a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--transaction-->
+        <section class="py-6 ">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-auto  ">
+                <div class="m-2 border rounded-2 shadow-sm" >
+                  <div class="d-flex m-2 justify-content-between align-items-center">
+                    <div>
+                      <h6 class="mb-0">Transacciones recientes1</h6>
+                    </div>
+                    <div >                   
+                    <a class="btn btn-primary   m-2 " href="#">
+                        <i class="fa-solid fa-credit-card me-1"></i>
+                      <span>Ver todas</span>
+                    </a>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="table-responsive ">               
+                <table class="table ">
+                  <thead>
+                    <tr class="table-active">
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="fw-bold align-middle text-dark">
+                      <td class="p-6">
+                        <div class="d-flex align-items-center">
+                          <a class="nav-link active text-dark" aria-current="page" href="{% url 'dashboard' %}">
+                            <span class="me-1">
+                              <i class="fa-brands fa-cc-visa"></i>
+                            </span>
+                               {estado_pago}
+                          </a>
+
+                        </div>
+                      </td>
+                      <td class="p-6">{amount}</td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+              <div class="col-md-8  ">
+                <div class="m-2 border rounded-2 shadow-sm">
+                  <div class="d-flex m-2 justify-content-between align-items-center">
+                    <div>
+                      <h6 class="mb-0">Alquileres recientes</h6>
+                    </div>
+                    <div >                   
+                    <a class="btn btn-primary   m-2 " href="#">
+                        <i class="fa-solid fa-credit-card me-1"></i>
+                      <span>Ver todas</span>
+                    </a>
+                  </div>
+                  </div>
+                </div>
+
+                <div class="table-responsive">               
+                <table class="table">
+                  <thead>
+                    <tr class="table-active">
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class=" align-middle text-dark align-items-center">
+                      <td class="p-6 ">
+                        <div class="d-flex  ">
+                          <!--p> 
+                            <span class="me-1">
+                              {transac_id}
+                            </span>
+                          </p-->
+                          <a class="nav-link active text-dark" aria-current="page" href="{% url 'dashboard' %}">
+                            <span class="me-1">
+                              <i class="fa-brands fa-cc-visa"></i>
+                            </span>
+                               {transact_id}
+                          </a>
+
+                        </div>
+                      </td><td class="p-6">
+                        <div class="d-flex align-items-center">
+                          <!--p> 
+                            <span>
+                              {desde} -
+                            </span>
+                            <span>
+                              {hasta}
+                            </span>
+                          </p-->
+                          <a class="nav-link active text-dark" aria-current="page" href="{% url 'dashboard' %}">
+                            <span>
+                              {desde} -
+                            </span>
+                            <span>
+                              {hasta}
+                            </span>
+                          </a>          
+                        </div>
+                      </td>
+                      
+                      <td class="p-6">
+                        <div class="d-flex align-items-center">
+                          <!--p> 
+                            <span>
+                              {inicio} - 
+                            </span>
+                            <span>
+                              {fin}
+                            </span>
+                            <a class="nav-link active text-dark" aria-current="page" href="{% url 'dashboard' %}">
+                            <span class="me-1">
+                              <i class="fa-brands fa-cc-visa"></i>
+                            </span>
+                               {estado_pago}
+                          </a>
+                          </p-->
+                          <a class="nav-link active text-dark" aria-current="page" href="{% url 'dashboard' %}">
+                            <span>
+                              {inicio} -
+                            </span>
+                            <span>
+                              {fin}
+                            </span>
+                          </a>          
+                        </div>
+                      </td>
+
+                      <td class="p-6">
+                        <div class="d-flex align-items-center">
+                          <a class="nav-link active text-dark" aria-current="page" href="{% url 'dashboard' %}">
+                            <span>
+                              {estado} 
+                            </span>
+                          </a>          
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table></div>
+              </div>
+
+                
+              <!--/div-->
+            </div>
+
+            <div class="row">
+              <div class="col-2">
+                <!--p>
+                  aaaLorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, quod numquam nihil saepe voluptatum autem atque? Non doloremque, dolores temporibus vel, eos natus cupiditate ducimus, hic perspiciatis cumque nihil architecto.
+                </p-->
+              </div>
+            </div>
+          </div>
+        </section><br><br>
+        <!--rentals-->
+        
+
+
+      </div>
+    </div>
+
+    
+  </div>
+{% endblock %}

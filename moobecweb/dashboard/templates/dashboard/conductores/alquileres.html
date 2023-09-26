@@ -1,0 +1,213 @@
+{% extends "layouts/dashboard_base.html" %}
+{% load static %}
+<!-- block title  Mis alquileres {{ user.groups.all.0.name }} endblock-->
+
+{% block title %} Alquileres de {{ user.first_name}} {% endblock %}
+{% block content %}
+    <div class="container-fluid border-bottom border-light border-top shadow-sm" style="background-color: #F8F7F8;">
+    <div class="mt-4 mb-4">
+      <div class="container">
+        <h4>
+          <span>
+            Hola, {{user.first_name}} 👋 alquileres
+          </span>
+          <!--span class="badge bg-primary ">
+            {{ user.groups.all.0.name }}
+          </span-->
+        </h4>
+      </div>
+      
+      <!--CONTENT-->
+    
+      <div class="container-fluid bg-light rounded-3">
+        <!--cards-->
+        
+        <!--rentals-->
+        <section class="py-8" style="background-color: #F8F7F8"><br>
+            <div class="container" >
+                {% if  bookingdetail_count.count >= 1 %}
+                    <div class="px-4 pb-4 mb-6 bg-white rounded shadow-sm">
+                        <div class="table-responsive">
+                            <table class="table mb-0 table-borderless table-striped small">
+                                <thead>
+                                    <tr class="text-secondary">
+                                        <th class="pt-4 pb-3 px-6">
+                                            Auto
+                                        </th>
+                                        <th class="pt-4 pb-3 px-6">
+                                            Pick-up
+                                        </th>
+                                        <th class="pt-4 pb-3 px-6">
+                                            Drop-off
+                                        </th>
+                                        <th class="pt-4 pb-3 px-6">
+                                            Inicio
+                                        </th>
+                                        <th class="pt-4 pb-3 px-6">
+                                            Fin
+                                        </th>
+                                        <th class="pt-4 pb-3 px-6">
+                                            Total
+                                        </th>
+                                        <th class="pt-4 pb-3 px-6">
+                                            Estado
+                                        </th>
+                                        <th class="pt-4 pb-3 px-6">
+                                            Accion
+                                        </th>
+                                    </tr>
+                                </thead>
+                            <tbody>
+                            {% for booking_details in bookingdetail_count %}
+                            <tr>
+                                <td class="py-3 px-6">
+                                  <div class="d-flex align-items-center">
+                                    <img class="me-4 img-fluid rounded" src="https://images.unsplash.com/photo-1559893088-c0787ebfc084?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="" style="width: 32px; height: 32px;">
+                                    <div>
+                                      <p class="mb-0">Modelo: {{booking_details.reserved_vehicle.car_model}}</p>
+                                      <p class="mb-0">Placa: {{booking_details.reserved_vehicle.car_plate_number}}</p>
+                                      <p class="mb-0">Anio: {{booking_details.reserved_vehicle.car_year}}</p>
+                                      <p class="mb-0">Categoria: {{booking_details.reserved_vehicle.car_categorie}}</p>
+                                      <!--p class="mb-0">Categoria: {{booking_details.reserved_vehicle.spot_name.location_city}}</p-->
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="py-5 px-6">
+                                    <p>{{booking_details.rental_pickup}}</p>
+                                </td>
+                                <td class="py-5 px-6"> 
+                                    <p>{{booking_details.rental_dropoff}}</p>
+                                </td>
+                                <td class="py-5 px-6">
+                                    <p>{{booking_details.rental_start}}</p>
+                                </td>
+                                <td class="py-5 px-6">
+                                    <p>{{booking_details.rental_stop}}</p>
+                                </td>
+                                <td class="py-5 px-6">
+                                    ${{booking_details.pago_id.payment_amount}}
+                                </td>
+                                <td class="py-5 px-6">
+                                    {% if booking_details.reserva_status == 'Confirmado' %}
+                                        <span class="badge bg-success  " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop_confirmado">
+                                          {{booking_details.reserva_status}}
+                                        </span>
+                                          <!-- Modal -->
+                                          <div class="modal fade" id="staticBackdrop_confirmado" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="staticBackdropLabel">Estado: {{booking_details.reserva_status}} </h5>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <span>
+                                                    <h6 class=" fw-bold text-danger">
+                                                    Tu reserva esta confirmada.
+                                                    </h6>
+                                                    <p>
+                                                        Recuerda que debes presentarte con 30 minutos minimo de anticipacion a la hora del alquiler.
+                                                    </p><br><hr/>
+                                                    <span>
+                                                      Si tienes alguna duda puedes escribirnos a traves de nuestras redes sociales:
+                                                    </span><br><br>
+                                                    <span class=" text-center">
+                                                      <div class="container-fluid">
+                                                        <a class="me-3" href="https://www.facebook.com/moobec">
+                                                          <img src="{% static 'assets/metis-assets/icons/facebook-blue.svg' %}" alt="">
+                                                        </a>
+                                                        <a class="me-3" href="#">
+                                                          <img src="{% static 'assets/metis-assets/icons/twitter-blue.svg' %}" alt="">
+                                                        </a>
+                                                        <a href="#">
+                                                          <img src="{% static 'assets/metis-assets/icons/instagram-blue.svg' %}" alt="">
+                                                        </a>
+                                                      </div>
+                                                    </span>                                                  
+                                                  </span>
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                    {% elif booking_details.reserva_status == 'Cancelado' %}
+                                    <span class="badge bg-danger ">
+                                        {{booking_details.reserva_status}}
+                                    </span>
+                                    {% elif booking_details.reserva_status == 'Rechazado' %}
+                                    <span class="badge bg-danger  ">
+                                        {{booking_details.reserva_status}}
+                                    </span>
+                                    {% elif booking_details.reserva_status == 'Reservado' %}
+                                        <span class="badge bg-warning  " type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        {{booking_details.reserva_status}}
+                                        </span>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h5 class="modal-title" id="staticBackdropLabel">Estado: {{booking_details.reserva_status}} </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <span>
+                                                  <h6 class=" fw-bold text-danger">
+                                                  Tu reserva aun no esta confirmada.
+                                                  </h6>
+                                                  <p>
+                                                      Por lo general, el propietario confirma en un maximo de 2 horas tu solocitud de reserva.
+                                                  </p>
+                                                  </span>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    {% endif %}
+                                </td>
+                                <td class="py-5 px-6">
+                                  <a class="btn p-0 me-2 text-secondary" href="#">
+                                    <i class="fa-regular fa-eye"></i>
+                                  </a>
+                                  <a class="btn p-0 me-2 text-secondary" href="#">
+                                    <i class="fa-solid fa-print"></i>
+                                  </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% else %}
+                    
+                    <div class="container text-center">
+                        <img class="img-fluid text-center" width="200px" height=”100px” src="{% static 'assets\metis-assets\logos\brands\no_booking.png' %}" alt=""><a class="lead text-muted mb-0" style="text-decoration: none;"></a>
+                        <h5>No existen reservas para mostrar
+                        </h5>
+                        <a class="btn btn-primary   m-2 " href="{% url 'rentals' %}">
+                          <i class="fa-solid fa-magnifying-glass-location"></i>
+                        <span>Buscar autos</span>
+                      </a>
+                      </div>
+                {% endif %}
+            </div><br><br>
+        </section>
+
+      </div>
+    </div>  
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+

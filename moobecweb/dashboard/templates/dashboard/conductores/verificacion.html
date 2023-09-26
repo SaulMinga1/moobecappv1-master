@@ -1,0 +1,72 @@
+{% extends "layouts/cuenta_base.html" %}
+{% load static %}
+<!-- block title  Mis alquileres {{ user.groups.all.0.name }} endblock-->
+
+{% block title %} Cuenta de:  {{ user.first_name}} {% endblock %}
+{% block content %}
+    
+                <div class="col-sm-10">
+                    <div class="tab-content bg-white  rounded-3" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="#v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div class=" container-fluid p-3  shadow-sm p-4" >
+                                <p class="text-secondary"><strong >Verifica tu perfil</strong></p><hr>
+                                <span>
+                                    <div class="row g-3">
+                                        <div class="col-sm-6">
+                                            <p>Sube la foto de tu carnet de conducir por ambos lados para empezar el proceso de verificaion.</p>
+                                            <div class="card border-success mb-3" style="max-width: 18rem;">
+                                              <div class="card-header text-success"><strong>{{user.first_name}} {{user.last_name}}</strong></div>
+                                              <div class="card-body text-success">
+                                                <h5 class="card-title">Perfil verificado</h5>
+                                                <p class="card-text">Recuerda actualizar tu documentacion cada 6 meses.</p>
+                                              </div>
+                                          </div>
+                                          <div class="card border-danger mb-3" style="max-width: 18rem;">
+                                              <div class="card-header text-danger"><strong>{{user.first_name}} {{user.last_name}}</strong></div>
+                                              <div class="card-body text-danger">
+                                                <h5 class="card-title">Perfil no verificado</h5>
+                                                <p class="card-text">Recuerda verificar tu perfil para poder empezar a conducir nuestros autos</p>
+                                              </div>
+                                          </div>
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <div class="input-group">
+                                                <div class="custom-file ">
+                                                  <div class=" card bg-light mb-3 " style="max-width: 18rem;">
+                                                    <div class="card-header">Licencia de conducir</div>
+                                                    <div class="card-body">
+                                                      <input type="file" class="custom-file-input" id="inputGroupFile04">
+                                                      <div class="input-group-append p-2">
+                                                        <button class="btn btn-outline-secondary " type="button">Guardar</button>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            <div class="input-group">
+                                              <div class="custom-file ">
+                                                <div class=" card bg-light mb-3 " style="max-width: 18rem;">
+                                                  <div class="card-header">Foto Frontal de tu rostro</div>
+                                                  <div class="card-body">
+                                                    <input type="file" class="custom-file-input" id="inputGroupFile04">
+                                                    <div class="input-group-append p-2">
+                                                      <button class="btn btn-outline-secondary " type="button">Guardar</button>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </span><br>
+                                    
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+{% endblock %}
+
+
+

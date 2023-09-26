@@ -1,0 +1,107 @@
+{% extends "layouts/dashboard_base.html" %}
+{% load static %}
+{% block title %} {{ user.groups.all.0.name }} {% endblock %}
+
+{% block content %}
+    <div class="container-fluid border-bottom border-light border-top shadow-sm" style="background-color: #F8F7F8;">
+    <div class="mt-4 mb-4">
+      <div class="container">
+        <h4>
+          <span>
+            Hola, {{user.first_name}} 👋  pagos
+          </span>
+          <!--span class="badge bg-primary ">
+            {{ user.groups.all.0.name }}
+          </span-->
+        </h4>
+      </div>
+      
+      <!--CONTENT-->
+    
+      <div class="container-fluid bg-white rounded-3">
+        <!--cards-->
+        
+        <!--rentals-->
+        <section class="py-8" style="background-color: #F8F7F8"><br>
+            <div class="container" >
+                {% if  reserva %}
+                    <div class="px-4 pb-4 mb-6 bg-white rounded shadow-sm">
+                        <div class="table-responsive">
+                            <table class="table mb-0 table-borderless table-striped small">
+                                <thead>
+                                    <tr class="text-secondary">
+                                        <th class="pt-4 pb-3 px-6">
+                                            Auto
+                                        </th>
+                                        <th class="pt-4 pb-3 px-6">
+                                            Id Pago
+                                        </th>
+                                        <th class="pt-4 pb-3 px-6">
+                                            Monto
+                                        </th>
+                                        <th class="pt-4 pb-3 px-6">
+                                            Cargos Adicionales
+                                        </th>           
+                                    </tr>
+                                </thead>
+                            <tbody>
+                            {% for reservas in reserva %}
+                            
+                              <tr>
+                              <a href="#">
+                                <td class="py-3 px-6">
+                                  <div class="d-flex align-items-center">
+                                    <img class="me-4 img-fluid rounded" src="https://images.unsplash.com/photo-1559893088-c0787ebfc084?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80" alt="" style="width: 32px; height: 32px;">
+                                    <div>
+                                      <p class="mb-0">Modelo: {{reservas.reserved_vehicle.car_model}}</p>
+                                      <p class="mb-0">Placa: {{reservas.reserved_vehicle.car_plate_number}}</p>
+                                      <p class="mb-0">Anio: {{reservas.reserved_vehicle.car_year}}</p>
+                                      <p class="mb-0">Categoria: {{reservas.reserved_vehicle.car_categorie}}</p>
+                                      <p class="mb-0">Rental Pickup: {{reservas.rental_pickup}}</p>
+                                      <p class="mb-0">Creado en: {{reservas.pago_id.created}}</p>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td class="py-5 px-6">
+                                    <p>{{reservas.pago_id.payment_id}}</p>
+                                </td>
+                                <td class="py-5 px-6"> 
+                                    <p>{{reservas.pago_id.payment_amount}}</p>
+                                </td>
+                                <td class="py-5 px-6">
+                                    <p>{{reservas.pago_id.add_charges}}</p>
+                                </td>
+                              </a>
+                              </tr>
+                         
+                            {% endfor %}
+                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% else %}
+                    
+                    <div class="container text-center">
+                        <img class="img-fluid text-center" width="200px" height=”100px” src="{% static 'assets\metis-assets\logos\brands\Wallet-pana.svg' %}" alt=""><a class="lead text-muted mb-0" style="text-decoration: none;"></a>
+                        <h5>No existen transacciones
+                        </h5>
+                        <a class="btn btn-primary   m-2 " href="{% url 'rentals' %}">
+                          <i class="fa-solid fa-magnifying-glass-location"></i>
+                        <span>Buscar autos</span>
+                      </a>
+                      </div>
+                {% endif %}
+            </div><br><br>
+        </section>
+      </div>
+    </div>  
+  </div>
+{% endblock %}
+
+
+
+
+
+
+
+
